@@ -1,20 +1,22 @@
 import processing.core.PApplet;
-
+//importing our own Launcher Class
+import Platformer.Launcher;
 public class Main extends PApplet {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) {		
 			PApplet.main("Main");
 	}
+	Launcher launcher;
 	public void setup ()
 	{
 		background(0);
-		
+		launcher = new Launcher(this);
+		launcher.StartGame();
 		
 	}
 	public void draw()
 	{
-		
+		launcher.UpdateAll();
 		
 	}
 	public void settings()
@@ -22,4 +24,10 @@ public class Main extends PApplet {
 		size(640,480);
 		
 	}
+	public void keyPressed()    { 
+		launcher.keyPressed(key, keyCode);
+		}
+	public void keyReleased()   { 
+		launcher.keyReleased(key, keyCode); 
+		}
 }
